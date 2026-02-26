@@ -2,9 +2,22 @@ package Gestao;
 
 public abstract class Funcionario {
 
-    private String nome;
-    private String CPF;
-    private double salarioBase;
+    protected String nome;
+    protected String CPF;
+    protected double salarioBase;
+
+    public Funcionario(String nome, String CPF, double salarioBase) {
+        this.nome = nome;
+        this.CPF = CPF;
+        this.salarioBase = salarioBase;
+    }
+
+    public abstract double CalcularPagamento();
+
+    @Override
+    public String toString() {
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
 
     public String getNome() {
         return nome;
@@ -28,10 +41,6 @@ public abstract class Funcionario {
 
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
-    }
-
-    public void calcularPagamento() {
-        //Sera implementado futuramente;
     }
 
 }

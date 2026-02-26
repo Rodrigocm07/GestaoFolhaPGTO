@@ -18,6 +18,7 @@ public abstract class Funcionario {
     public String toString() {
         return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
+    
 
     public String getNome() {
         return nome;

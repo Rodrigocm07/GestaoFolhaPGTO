@@ -1,41 +1,51 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Gestao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GerenciadorRH {
-    
-    private List<Funcionario> funcionarios;
-    
-    public GerenciadorRH(){
+    private ArrayList<Funcionario> funcionarios;
+
+    public GerenciadorRH() {
         this.funcionarios = new ArrayList<>();
     }
-    
-    public void addFuncionario(Funcionario funcionario){
-        funcionarios.add(funcionario);
+
+    public void adicionarFuncionario(Funcionario f) {
+        funcionarios.add(f); 
     }
-    
-    public void listarFuncionario(){
-        
-        if(funcionarios.isEmpty()){
-            System.out.println("Nenhum funcionario encontrado.");
+
+    public Funcionario buscarPorCpf(String cpf) {
+        for (Funcionario f : funcionarios) {
+            if (f.getCPF().equals(cpf)) {
+                return f;
+            }
+        }
+        return null;
+    }
+
+    public boolean removerFuncionario(String cpf) {
+        Funcionario f = buscarPorCpf(cpf);
+        if (f != null) {
+            funcionarios.remove(f);
+            return true;
+        }
+        return false;
+    }
+
+    public void listarFuncionarios() {
+        if (funcionarios.isEmpty()) {
+            System.out.println("Nenhum funcionário cadastrado.");
             return;
         }
-        
-    double totalFolha = 0.0;
-    
         for (Funcionario f : funcionarios) {
             System.out.println(f);
-            System.out.println("-------------------");
-            
-            totalFolha += f.CalcularPagamento();
         }
-        
-        System.out.printf("Custo total da folha: R$ %.2f%n", totalFolha);
-        
+    }
+
+    public double calcularCustoTotal() {
+        double total = 0;
+        for (Funcionario f : funcionarios) {
+            total += f.CalcularPagamento(); 
+        }
+        return total;
     }
 }

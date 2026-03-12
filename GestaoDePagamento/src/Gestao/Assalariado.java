@@ -4,9 +4,15 @@ public class Assalariado extends Funcionario {
 
     private double Bonus;
 
-    public Assalariado(double Bonus, String nome, String CPF, double salarioBase) {
+    public Assalariado(String nome, String CPF, double salarioBase, double Bonus) {
         super(nome, CPF, salarioBase);
         this.Bonus = Bonus;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" | Bônus: R$ %.2f | Total: R$ %.2f",
+                Bonus, CalcularPagamento());
     }
 
     public double getBonus() {

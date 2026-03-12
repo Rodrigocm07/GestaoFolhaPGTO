@@ -16,9 +16,9 @@ public abstract class Funcionario {
 
     @Override
     public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        return String.format("Nome: %s | CPF: %s | Salário Base: R$ %.2f",
+                nome, CPF, salarioBase);
     }
-    
 
     public String getNome() {
         return nome;
